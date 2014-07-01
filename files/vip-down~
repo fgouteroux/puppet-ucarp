@@ -1,3 +1,0 @@
-#!/bin/sh
-#exec /sbin/ip addr del ${IPADDR}/${NETMASK} dev "$1"
-exec /sbin/ifconfig $1 down
