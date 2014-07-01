@@ -4,27 +4,28 @@ Module for UCARP Management
 
 Tested on Debian 7.
 
-## Usage
-
+### Usage
 Tweak and add the following to your site manifest:
-
+...
   class {'ucarp':}
+...
 
 If you want to manage ucarp on boot:
-
+...
   class {'ucarp::config':
     ucarp_enabled => hiera('ucarp::enabled', 'no'),
   }
+...
 
 To create mutiple VIP on sub-interface:
-
+...
   $ucarp_vip = hiera_hash('ucarp::vip', false)
     if $ucarp_vip {
       create_resources('ucarp::vip', $ucarp_vip)
     }
-
+...
 Example of Hieradata file:
-
+...
 ---
 ucarp::enabled: 'yes'
 ucarp::vip:
@@ -36,3 +37,4 @@ ucarp::vip:
     ucarp_vip_netmask: '255.255.255.255'
     ucarp_password: 'mypassword'
     ucarp_options: '--advskew 1 --advbase 1 --preempt --neutral'
+...
