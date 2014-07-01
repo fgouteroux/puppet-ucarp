@@ -1,0 +1,8 @@
+# UCARP virtual IP configuation file
+#
+# Managed by Puppet
+#
+PASSWORD="<%= @ucarp_password %>"
+BIND_INTERFACE="<%= @ucarp_sub_interface %>"
+VIP_INTERFACE="<%= @ucarp_sub_interface %>:ucarp"
+OPTIONS="<%= @ucarp_options %>"

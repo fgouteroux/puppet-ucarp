@@ -1,0 +1,16 @@
+# UCARP virtual IP configuation file
+#
+# Managed by Puppet
+#
+
+  ucarp-vid <%= @ucarp-vid %>;
+  ucarp-vip <%= @ucarp-vip %>;
+  ucarp-password <%= @ucarp-password %>;
+  ucarp-advskew <%= @ucarp-advskew %>;
+  ucarp-advbase <%= @ucarp-advbase %>;
+  ucarp-master <%= @ucarp-master %>;
+
+iface <%= @interface %>:<%= @ucarp-vid %>:ucarp inet static;
+  address <%= @ucarp-vip %>;
+  netmask <%= @ucarp-vip-netmask %>;
+

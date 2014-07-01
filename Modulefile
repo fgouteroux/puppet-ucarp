@@ -1,0 +1,5 @@
+name    'puppet-ucarp'
+version '0.1.0'
+summary 'UCARP management module'
+description 'UCARP management module'
+author 'François Gouteroux'
