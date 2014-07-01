@@ -24,9 +24,9 @@ To create mutiple VIP on sub-interface:
       create_resources('ucarp::vip', $ucarp_vip)
     }
 ```
+
 Example of Hieradata file:
 ```
----
 ucarp::enabled: 'yes'
 ucarp::vip:
   100:
