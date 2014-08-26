@@ -1,5 +1,6 @@
 define ucarp::vip (
   $ucarp_sub_interface,
+  $ucarp_sub_interface_enabled,
   $ucarp_sub_interface_address,
   $ucarp_sub_interface_netmask,
   $ucarp_vip,
@@ -19,7 +20,7 @@ define ucarp::vip (
     content => template("${module_name}/vip.conf.erb"),
     require => Class["${module_name}::config"],
   }
-  
+
   augeas{ "ucarp_sub_interface_${name}" :
     context => $context,
     changes => [
@@ -37,6 +38,14 @@ define ucarp::vip (
     ],
   }
 
+  if $ucarp_sub_interface_enabled == 'yes' {
+    exec{"/usr/share/ucarp-mvip/vip-up ${ucarp_sub_interface}":
+      require => File['/usr/share/ucarp-mvip/vip-up'],
+    }->
 
+    service { "ucarp-mvip":
+      ensure => "running",
+    }
+  }
 }
 
