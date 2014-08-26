@@ -31,6 +31,7 @@ ucarp::enabled: 'yes'
 ucarp::vip:
   100:
     ucarp_sub_interface: 'eth1:100'
+    ucarp_sub_interface_enabled: 'yes'
     ucarp_sub_interface_address: '10.0.0.1'
     ucarp_sub_interface_netmask: '255.255.255.0'
     ucarp_vip: '192.168.1.100'
