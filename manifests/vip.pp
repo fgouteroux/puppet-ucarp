@@ -84,8 +84,9 @@ define ucarp::vip (
       require => File[$config],
     }->
 
-    service { "ucarp-mvip":
-      ensure => "running",
+    exec { "Restart ucarp-mvip service for VIP ${name}":
+      path    => ["/etc/init.d/"],
+      command => "ucarp-mvip restart"
     }
   }
 }
